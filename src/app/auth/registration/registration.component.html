@@ -2,6 +2,48 @@
     <mat-card>
         <mat-card-header>
             <mat-card-title>Regisztráció</mat-card-title>
+            <mat-card-subtitle>Add meg az alábbi adatokat</mat-card-subtitle>
         </mat-card-header>
+        <mat-card-content>
+            <form action="POST" [formGroup]="form">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Név:</mat-label>
+                    <input matInput type="text" placeholder="Név" formControlName="name">
+                    <ng-container *ngIf="form.controls['name'].invalid && (form.controls['name'].touched || form.controls['name'].dirty)">
+                        <span class="errormsg" *ngIf="form.controls['name'].errors?.['required']">Add meg a neved!</span>
+                    </ng-container>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>E-mail cím:</mat-label>
+                    <input matInput type="email" placeholder="E-mail cím" formControlName="email">
+                    <ng-container *ngIf="form.controls['email'].invalid && (form.controls['email'].touched || form.controls['email'].dirty)">
+                        <span class="errormsg" *ngIf="form.controls['email'].errors?.['required']">Add meg az e-mail címed!</span>
+                        <span class="errormsg" *ngIf="form.controls['email'].errors?.['email']">Nem megfelelő e-mail cím formátum!</span>
+                    </ng-container>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Jelszó:</mat-label>
+                    <input matInput type="password" placeholder="Jelszó" formControlName="password1">
+                    <ng-container *ngIf="form.controls['password1'].invalid && (form.controls['password1'].touched || form.controls['password1'].dirty)">
+                        <span class="errormsg" *ngIf="form.controls['password1'].errors?.['required']">Add meg a jelszavad!</span>
+                    </ng-container>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Jelszó megerősítése:</mat-label>
+                    <input matInput type="password" placeholder="Jelszó megerősítése" formControlName="password2">
+                    <ng-container *ngIf="form.controls['password2'].invalid && (form.controls['password2'].touched || form.controls['password2'].dirty)">
+                        <span class="errormsg" *ngIf="form.controls['password2'].errors?.['required']">Add meg a jelszavad!</span>
+                    </ng-container>
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="registration()" [disabled]="form.invalid || isLoading">Regisztráció</button>
+            <mat-spinner diameter="30" *ngIf="isLoading"></mat-spinner>
+        </mat-card-actions>
     </mat-card>
 </div>

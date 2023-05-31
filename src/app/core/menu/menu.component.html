@@ -1,15 +1,16 @@
 <p>
     <mat-toolbar color="primary">
         <button mat-icon-button class="example-icon" routerLink="/">
-        <mat-icon >menu</mat-icon>
+        <mat-icon>local_hospital</mat-icon>
       </button>
         <span>{{ title }}</span>
         <span class="example-spacer"></span>
-        <button mat-button routerLink="/data/table">Megbetegedési/oltási adatok</button>
-        <button mat-button routerLink="/data/chart">Grafikonok</button>
+        <button mat-button routerLink="/home" routerLinkActive="active-link">Főoldal</button>
+        <button mat-button routerLink="/data/table" routerLinkActive="active-link">Megbetegedési/oltási adatok</button>
+        <button mat-button routerLink="/data/chart" routerLinkActive="active-link">Grafikonok</button>
         <span class="example-spacer"></span>
 
-        <button mat-button routerLink="/reg">Regisztráció</button>
+        <button mat-raised-button routerLink="/reg" color="warn">Regisztráció</button>
         <button mat-icon-button class="example-icon">
         <mat-icon>logout</mat-icon>
       </button>

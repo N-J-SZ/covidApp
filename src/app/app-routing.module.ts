@@ -6,7 +6,7 @@ import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomeComponent
   },
   {
@@ -20,6 +20,11 @@ const routes: Routes = [
   {
     path: 'data',
     loadChildren: ()=> import('./covid/covid.module').then(m => m.CovidModule)
+  },
+  { 
+    path: '', 
+    redirectTo: 'home',
+    pathMatch: 'full' 
   }
 
 

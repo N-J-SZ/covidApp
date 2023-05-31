@@ -1,0 +1,19 @@
+.container {
+    width: 600px;
+    margin: 20px auto;
+    mat-form-field {
+        width: 100%;
+    }
+    mat-card-content,
+    mat-card-actions {
+        padding: 15px;
+    }
+    mat-spinner {
+        padding: 0 10px;
+    }
+    .errormsg {
+        font-size: 80%;
+        font-style: italic;
+        color: red;
+    }
+}
