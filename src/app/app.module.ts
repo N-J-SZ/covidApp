@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from "./core/core.module";
 import { AuthModule } from './auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { AuthModule } from './auth/auth.module';
         AppRoutingModule,
         BrowserAnimationsModule,
         CoreModule,
-        AuthModule
+        AuthModule,
+        HttpClientModule
     ]
 })
 export class AppModule { }

@@ -10,9 +10,8 @@
         <button mat-button routerLink="/data/chart" routerLinkActive="active-link">Grafikonok</button>
         <span class="example-spacer"></span>
 
-        <button mat-raised-button routerLink="/reg" color="warn">Regisztráció</button>
-        <button mat-icon-button class="example-icon">
-        <mat-icon>logout</mat-icon>
-      </button>
+        <button mat-raised-button routerLink="/reg" color="warn" *ngIf="!isLoggedIn">Regisztráció</button>
+        <span *ngIf="isLoggedIn">Teszt Elek</span>
+        <button mat-icon-button (click)="logout()" *ngIf="isLoggedIn"><mat-icon>logout</mat-icon></button>
     </mat-toolbar>
 </p>
