@@ -19,84 +19,84 @@
             <table *ngIf="dataSource">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Value</th>
+                        <th>Megnevezés</th>
+                        <th>Érték</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>abbreviation</td>
+                        <th>Rövidítés:</th>
                         <td>{{ dataSource.abbreviation }}</td>
                     </tr>
                     <tr>
-                        <td>country</td>
+                        <th>Ország:</th>
                         <td>{{ dataSource.country }}</td>
                     </tr>
                     <tr>
-                        <td>continent</td>
+                        <th>Kontinens:</th>
                         <td>{{ dataSource.continent }}</td>
                     </tr>
                     <tr>
-                        <td>capital_city</td>
+                        <th>Főváros:</th>
                         <td>{{ dataSource.capital_city }}</td>
                     </tr>
                     <tr>
-                        <td>sq_km_area</td>
-                        <td>{{ dataSource.sq_km_area }}</td>
+                        <th>Terület:</th>
+                        <td>{{ dataSource.sq_km_area }} km<sup>2</sup></td>
                     </tr>
                     <tr>
-                        <td>elevation_in_meters</td>
-                        <td>{{ dataSource.elevation_in_meters }}</td>
+                        <th>Tengerszint feletti magasság:</th>
+                        <td>{{ dataSource.elevation_in_meters }} m</td>
                     </tr>
 
                     <tr>
-                        <td>lat</td>
+                        <th>Szélességi fok:</th>
                         <td>{{ dataSource.lat }}</td>
                     </tr>
                     <tr>
-                        <td>long</td>
+                        <th>Hosszúsági fok:</th>
                         <td>{{ dataSource.long }}</td>
                     </tr>
                     <tr>
-                        <td>location</td>
+                        <th>Elhelyezkedés:</th>
                         <td>{{ dataSource.location }}</td>
                     </tr>
                     <tr>
-                        <td>iso</td>
+                        <th>Iso:</th>
                         <td>{{ dataSource.iso }}</td>
                     </tr>
                     <tr>
-                        <td>population</td>
-                        <td>{{ dataSource.population }}</td>
+                        <th>Népesség:</th>
+                        <td>{{ dataSource.population }} fő</td>
                     </tr>
                     <tr>
-                        <td>confirmed</td>
+                        <th>Igazolt fertőzések száma:</th>
                         <td>{{ dataSource.confirmed }}</td>
                     </tr>
                     <tr>
-                        <td>deaths</td>
+                        <th>Elhalálozások száma:</th>
                         <td>{{ dataSource.deaths }}</td>
                     </tr>
                     <tr>
-                        <td>recovered</td>
+                        <th>Gyógyult esetek száma:</th>
                         <td>{{ dataSource.recovered }}</td>
                     </tr>
 
                     <tr>
-                        <td>administered</td>
-                        <td>{{ dataSource2?.administered }}</td>
+                        <th>Regisztrált oltások száma:</th>
+                        <td>{{ dataSource2?.administered }} fő</td>
                     </tr>
                     <tr>
-                        <td>people_vaccinated</td>
-                        <td>{{ dataSource2?.people_vaccinated }}</td>
+                        <th>Oltottak száma:</th>
+                        <td>{{ dataSource2?.people_vaccinated }} fő</td>
                     </tr>
                     <tr>
-                        <td>life_expectancy</td>
-                        <td>{{ dataSource2?.life_expectancy }}</td>
+                        <th>Várható élettartam:</th>
+                        <td>{{ dataSource2?.life_expectancy }} év</td>
                     </tr>
 
                     <tr>
-                        <td>updated</td>
+                        <th>Adatok utolsó frissítése:</th>
                         <td>{{ dataSource.updated }}</td>
                     </tr>
                 </tbody>

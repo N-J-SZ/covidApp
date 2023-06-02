@@ -5,6 +5,8 @@
 
 table {
     width: 100%;
+    border: 1px solid silver;
+    border-collapse: collapse;
 }
 
 .mat-mdc-form-field {
@@ -12,7 +14,20 @@ table {
     width: 100%;
 }
 
+thead th {
+    background-color: silver;
+}
+
 td,
 th {
+    text-align: left;
     width: 25%;
+    padding: 10px;
+    border-bottom: 1px solid silver;
+}
+
+tbody tr:hover {
+    background-color: #3f51b5;
+    cursor: pointer;
+    color: white !important;
 }

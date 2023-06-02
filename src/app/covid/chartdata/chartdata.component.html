@@ -1,1 +1,23 @@
-<p>chartdata works!</p>
+<div class="container">
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Megbetegedési/Oltási adatok</mat-card-title>
+            <mat-card-subtitle>Grafikonos megjelenítés</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <h4>Válassz ki egy országot:</h4>
+            <mat-form-field appearance="outline">
+                <mat-label>Ország</mat-label>
+                <mat-select (selectionChange)="getDatas($event.value)">
+                    <mat-option *ngFor="let country of countries" [value]="country">
+                        {{ country }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <ng-container *ngIf="dataSource">
+                <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"></highcharts-chart>
+            </ng-container>
+        </mat-card-content>
+    </mat-card>
+</div>

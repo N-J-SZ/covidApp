@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select'; 
 import { NotAllowedComponent } from './not-allowed/not-allowed.component';
 import { RouterModule } from '@angular/router';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RouterModule } from '@angular/router';
     MatTableModule,
     MatInputModule,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    HighchartsChartModule
   ],
   exports: [
     TabledataComponent,
