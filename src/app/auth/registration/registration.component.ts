@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-registration',
@@ -28,8 +27,13 @@ export class RegistrationComponent implements OnInit{
 
   registration(){
     this.isLoading = true;
-  /*  this.authService.registration(this.form.controls['name'].value, this.form.controls['email'].value, this.form.controls['password1'].value)
-    .pipe(finalize(()=> this.isLoading = false))
+    if (this.authService.registration(this.form.controls['name'].value, this.form.controls['email'].value, this.form.controls['password1'].value)){
+      this.isLoading = false;
+      this._snackBar.open('Sikeres regisztráció', 'Ok', {duration:3000});
+     
+    }
+    
+    /*.pipe(finalize(()=> this.isLoading = false))
     .subscribe(
       user => this._snackBar.open('Sikeres regisztráció', 'Ok', {duration:3000}),
       err => this._snackBar.open('Hiba történt a regisztráció során!', 'Ok', {duration:3000})

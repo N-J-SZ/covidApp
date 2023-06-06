@@ -23,35 +23,80 @@ export class ChartdataComponent implements OnInit{
     "Romania"
   ];
 
-  Highcharts: typeof Highcharts = Highcharts;
-  chartOptions: Highcharts.Options = {
-    series: [
-      {
-        type: 'column',
-        data: [1, 2, 3, 4, 5],
-      },
-    ],
-  };
+  data: number[] = [9721559, 2058847, 47367, 0, 16530488, 6419996, 10110492];
+  updateFlag = false;
 
+  Highcharts: typeof Highcharts = Highcharts;
+
+  chartOptions!: Highcharts.Options;
+    
   constructor(private covidService: CovidService) {}
   
   ngOnInit(): void {
+    this.chartOptions = {
     
+      title: {
+          text: 'Megbetegedési/Oltási adatok'
+      },
+      subtitle: {
+          text: 'Source: https://europe-central2-webuni-js-covid-exam.cloudfunctions.net'
+      },
+      xAxis: {
+          categories: [
+              'Népesség',
+              'Igazolt fertőzések száma',
+              'Elhalálozások száma',
+              'Gyógyult esetek száma',
+              'Regisztrált oltások száma',
+              'Oltottak száma',
+              'Oltatlanok száma'
+          ]
+      },
+      yAxis: {
+          min: 0,
+          title: {
+              text: 'Fő'
+          }
+      },
+      series: [
+        {
+          name: 'Adatok',
+          colorByPoint: true,
+          type: 'column',
+          data: this.data,
+        },
+      ],
+    }
   }
 
   getDatas(country: string){
     this.covidService.getCases(country).subscribe(
-      (data: Cases)=>{console.log(data)
+      (data: Cases)=>{
         this.dataSource = data; 
       },
       (err)=>{console.log(err)}
     );
 
     this.covidService.getVaccines(country).subscribe(
-      (data: Vaccines)=>{console.log(data)
-        this.dataSource2 = data;
+      (data: Vaccines)=>{
+        this.dataSource2! = data;
+        
+        this.chartOptions.series![0] = {
+          type: 'column',
+          data: [
+            this.dataSource!.population, 
+            this.dataSource!.confirmed,
+            this.dataSource!.deaths,  
+            this.dataSource!.recovered, 
+            this.dataSource2!.administered, 
+            this.dataSource2!.people_vaccinated,  
+            this.dataSource!.population - this.dataSource2!.people_vaccinated
+          ]
+        }
+        this.updateFlag = true;
       },
       (err)=>{console.log(err)}
+        
     );
   }
 }

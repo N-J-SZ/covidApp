@@ -16,7 +16,7 @@
                 </mat-select>
             </mat-form-field>
             <ng-container *ngIf="dataSource">
-                <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"></highcharts-chart>
+                <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" [(update)]="updateFlag"></highcharts-chart>
             </ng-container>
         </mat-card-content>
     </mat-card>

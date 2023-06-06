@@ -9,13 +9,29 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class MenuComponent implements OnInit {
 
   @Input() title: string = "";
-  isLoggedIn = true;
+
+  isLoggedIn = this.authService.isLoggedIn();
+  loggedUser: string = "";
 
   constructor(private authService: AuthService){}
 
   ngOnInit(): void {
-    
+    this.authService.currentUser.subscribe(user => {
+      
+      if (user){
+        this.isLoggedIn = true;
+        this.loggedUser = user.name;
+      }
+      else
+      {
+        this.isLoggedIn = false;
+        this.loggedUser = "";
+      }
+    });
   }
-  
-  logout(){}
+
+  logout(){
+    this.loggedUser = "";
+    this.authService.logout();
+  }
 }

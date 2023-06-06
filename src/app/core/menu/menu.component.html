@@ -11,7 +11,7 @@
         <span class="example-spacer"></span>
 
         <button mat-raised-button routerLink="/reg" color="warn" *ngIf="!isLoggedIn">Regisztráció</button>
-        <span *ngIf="isLoggedIn">Teszt Elek</span>
+        <span *ngIf="isLoggedIn">{{ loggedUser }}</span>&nbsp;
         <button mat-icon-button (click)="logout()" *ngIf="isLoggedIn"><mat-icon>logout</mat-icon></button>
     </mat-toolbar>
 </p>
